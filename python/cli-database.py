@@ -4,11 +4,8 @@ import argparse
 import mysql.connector
 
 '''
-If repurposing, the only changes that need to be made are to the
-insert statements, and
-the data_value variable
-
-Optionally, rename the Table if statements to line up with table being used
+TODO: Change the table names and queries to the correct values
+      Verify that the text files are space delimited
 '''
 
 parser = argparse.ArgumentParser()

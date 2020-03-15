@@ -6,10 +6,17 @@ import sys
 import tkinter.ttk as ttk
 import mysql.connector
 
-#each class is a page in this set up
-#mainapp creates the initialization of the app's baseline
-#the for loop  holds a list that holds the names of all of the
-#other page classes to be passed into self.frames and loaded when their buttons are clicked.
+'''
+TODO: Change buttons to reflect correct database
+      Add matplotlib code to create a plot using the results of the query
+
+
+each class is a page in this set up
+mainapp creates the initialization of the app's baseline
+the for loop  holds a list that holds the names of all of the
+other page classes to be passed into self.frames and loaded when their 
+buttons are clicked.
+'''
 
 class mainapp(tk.Tk):
 	
