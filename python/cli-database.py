@@ -3,10 +3,9 @@
 import argparse
 import mysql.connector
 
-'''
-TODO: Change the table names and queries to the correct values
-      Verify that the text files are space delimited
-'''
+#TODO: 
+# Add correct table(s)
+# Set up correct insertion statements and variables
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-a", action='store', dest='table', required=True, help="Add to table A")
@@ -18,7 +17,7 @@ fileName = args.textfile
 Table    = args.table
 
 # MySQL connection information
-cnx = mysql.connector.connect(user='',password='',database='CS421',host='localhost')
+cnx = mysql.connector.connect(user='',password='',database='',host='')
 cur = cnx.cursor()
 
 ff = open(fileName)

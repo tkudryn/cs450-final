@@ -6,11 +6,13 @@ import sys
 import tkinter.ttk as ttk
 import mysql.connector
 
+#TODO: 
+# Change buttons to reflect correct database
+# Remove unncessary buttons
+# Add correct views for correct actions (query, plot etc.)
+# Add matplotlib code to create a plot using the results of the query
+
 '''
-TODO: Change buttons to reflect correct database
-      Add matplotlib code to create a plot using the results of the query
-
-
 each class is a page in this set up
 mainapp creates the initialization of the app's baseline
 the for loop  holds a list that holds the names of all of the
