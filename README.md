@@ -12,7 +12,7 @@ The dataset was from <https://github.com/nytimes/covid-19-data/blob/master/us-st
 
 ## Developers and roles
 
-There were three developers
-Front-end
-Back-end
-Data Scientist
+There were three developers, each with a specific role:
+* Emily Risley: Front-end and team lead
+* Nicholas Grogg: Web server and database Back-end
+* Timothy Kudryn: Data Scientist plot specialist
