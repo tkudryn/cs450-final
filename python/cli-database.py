@@ -4,7 +4,6 @@ import argparse
 import mysql.connector
 
 #TODO: 
-# Add correct table(s)
 # Set up correct insertion statements and variables
 
 parser = argparse.ArgumentParser()
