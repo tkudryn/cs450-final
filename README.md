@@ -4,11 +4,15 @@ The code repo for Team 1's final project for UH Hilo's spring 2020 CS450.
 
 ## Project Overview
 
-This project uses Python for the front end and MariaDB for the backend.
+This project used Python for the front end and MariaDB for the backend.
 For this project, a dataset is stored in a web based database where it 
-is queried and plotted.
+was queried and plotted.
 
-The dataset is from <https://github.com/nytimes/covid-19-data/blob/master/us-states.csv>
+The dataset was from <https://github.com/nytimes/covid-19-data/blob/master/us-states.csv>
 
 ## Developers and roles
 
+There were three developers
+Front-end
+Back-end
+Data Scientist
