@@ -13,6 +13,7 @@ import mysql.connector
 # Add matplotlib code to create a plot using the results of the query
 # Remove export query and export database
 # Remove the insertion and removal pages
+# Add plot page
 
 '''
 each class is a page in this set up
@@ -35,7 +36,7 @@ class mainapp(tk.Tk):
 
             self.frames = {}
             #Don't forget to add new page classes to this list
-            for F in (StartPage,QueryPage,InsertPage,QEPage,RemovePage,TEPage,PlotPage):
+            for F in (StartPage,QueryPage,InsertPage,QEPage,RemovePage,TEPage): #,PlotPage):
                 frame = F(container,self)
                 self.frames[F] = frame
                 frame.grid(row=0,column=0,sticky="nsew")
@@ -99,7 +100,7 @@ class StartPage(tk.Frame):
         # Suggest removing
         queryExbutton = tk.Button(self, text="Export Query",command = lambda: controller.show_frame(QEPage))
         queryExbutton.pack()
-        plotExButton = tk.Button(self, text="Create Plot",command=lamda: controller.show_frame(PlotPage))
+        plotExButton = tk.Button(self, text="Create Plot",command = lambda: controller.show_frame(PlotPage))
         plotExButton.pack()
         #end buttons
 
