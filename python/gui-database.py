@@ -11,6 +11,8 @@ import mysql.connector
 # Remove unncessary buttons
 # Add correct views for correct actions (query, plot etc.)
 # Add matplotlib code to create a plot using the results of the query
+# Remove export query and export database?
+# Remove the insertion and removal pages
 
 '''
 each class is a page in this set up
@@ -33,7 +35,7 @@ class mainapp(tk.Tk):
 
             self.frames = {}
             #Don't forget to add new page classes to this list
-            for F in (StartPage,QueryPage,InsertPage,QEPage,RemovePage,TEPage):		
+            for F in (StartPage,QueryPage,InsertPage,QEPage,RemovePage,TEPage,PlotPage):
                 frame = F(container,self)
                 self.frames[F] = frame
                 frame.grid(row=0,column=0,sticky="nsew")
@@ -45,108 +47,21 @@ class mainapp(tk.Tk):
             frame = self.frames[cont]
             frame.tkraise()
 
-############################
-## EXPORT TABLE FUNCTIONS ##
-############################
+###########################
+## EXPORT TABLE FUNCTION ##
+###########################
         # Export bodytype
-        def BODYTYPE(self):
+        def PROJECTE(self):
             # Open MySQL connection
             self.cnx = mysql.connector.connect(user='', password='', database='',host='')
             self.cur = self.cnx.cursor()
-            self.command=("""SELECT * FROM body_type INTO OUTFILE '/home/username/ProjectExports/bodytype.csv';""")			
+            self.command=("""SELECT * FROM project INTO OUTFILE '/home/username/ProjectExports/bodytype.csv';""")			
             self.cur.execute
             self.cur.execute(self.command)
             self.cnx.commit()
             self.cur.close()
             self.cnx.close()
 		   
-        # Export brand
-        def BRAND(self):
-            # Open MySQL connection
-            self.cnx = mysql.connector.connect(user='', password='', database='',host='')
-            self.cur = self.cnx.cursor()
-            self.command=("""SELECT * FROM brand INTO OUTFILE '/home/username/ProjectExports/brand.csv';""")
-            self.cur.execute(self.command)
-            self.cnx.commit()
-            self.cur.close()
-            self.cnx.close()
-
-        # Export car
-        def CAR(self):
-            # Open MySQL connection
-            self.cnx = mysql.connector.connect(user='', password='', database='',host='')
-            self.cur = self.cnx.cursor()
-            self.command=("""SELECT * FROM car INTO OUTFILE '/home/username/ProjectExports/car.csv';""")
-            self.cur.execute(self.command)
-            self.cnx.commit()
-            self.cur.close()
-            self.cnx.close()
-
-        # Export costofownership
-        def COSTOFOWNERSHIP(self):
-            # Open MySQL connection
-            self.cnx = mysql.connector.connect(user='', password='', database='',host='')
-            self.cur = self.cnx.cursor()
-            self.command=("""SELECT * FROM costofownership INTO OUTFILE '/home/username/ProjectExports/cow.csv';""")
-            self.cur.execute(self.command)
-            self.cnx.commit()
-            self.cur.close()
-            self.cnx.close()
-
-        # Export engine
-        def ENGINE(self):
-            # Open MySQL connection
-            self.cnx = mysql.connector.connect(user='', password='', database='',host='')
-            self.cur = self.cnx.cursor()
-            self.command=("""SELECT * FROM engine INTO OUTFILE '/home/username/ProjectExports/engine.csv';""")
-            self.cur.execute(self.command)
-            self.cnx.commit()
-            self.cur.close()
-            self.cnx.close()
-
-        # Export jointproject
-        def JOINTPROJECT(self):
-            # Open MySQL connection
-            self.cnx = mysql.connector.connect(user='', password='', database='',host='')
-            self.cur = self.cnx.cursor()
-            self.command=("""SELECT * FROM jointproject INTO OUTFILE '/home/username/ProjectExports/jointproject.csv';""")
-            self.cur.execute(self.command)
-            self.cnx.commit()
-            self.cur.close()
-            self.cnx.close()
-
-        # Export review
-        def REVIEW(self):
-            # Open MySQL connection
-            self.cnx = mysql.connector.connect(user='', password='', database='',host='')
-            self.cur = self.cnx.cursor()
-            self.command=("""SELECT * FROM review INTO OUTFILE '/home/username/ProjectExports/review.csv';""")
-            self.cur.execute(self.command)
-            self.cnx.commit()
-            self.cur.close()
-            self.cnx.close()
-
-        # Export tech
-        def TECH(self):
-            # Open MySQL connection
-            self.cnx = mysql.connector.connect(user='', password='', database='',host='')
-            self.cur = self.cnx.cursor()
-            self.command=("""SELECT * FROM tech INTO OUTFILE '/home/username/ProjectExports/tech.csv';""")
-            self.cur.execute(self.command)
-            self.cnx.commit()
-            self.cur.close()
-            self.cnx.close()
-
-        # Export usesengine
-        def USESENGINE(self):
-            # Open MySQL connection
-            self.cnx = mysql.connector.connect(user='', password='', database='',host='')
-            self.cur = self.cnx.cursor()
-            self.command=("""SELECT * FROM usesengine INTO OUTFILE '/home/username/ProjectExports/usesengine.csv';""")
-            self.cur.execute(self.command)
-            self.cnx.commit()
-            self.cur.close()
-            self.cnx.close()
 
 ############
 #Start Page#
@@ -177,11 +92,15 @@ class StartPage(tk.Frame):
         removebutton = tk.Button(self, text="Remove",command = lambda: controller.show_frame(RemovePage))
         removebutton.pack()
 
+        # Suggest removing
         tableExbutton = tk.Button(self, text="Export Table",command = lambda: controller.show_frame(TEPage))
         tableExbutton.pack()
 
+        # Suggest removing
         queryExbutton = tk.Button(self, text="Export Query",command = lambda: controller.show_frame(QEPage))
         queryExbutton.pack()
+        plotExButton = tk.Button(self, text="Create Plot",command=lamda: controller.show_frame(PlotPage))
+        plotExButton.pack()
         #end buttons
 
 
@@ -862,24 +781,8 @@ class TEPage(tk.Frame):
 
         backbutton = tk.Button(self, text="Back",command = lambda: controller.show_frame(StartPage))
         backbutton.pack(anchor = "sw", side = "left")
-        BodyType = tk.Button(self, text="BodyType",command = lambda: controller.BODYTYPE())
-        BodyType.pack()
-        Brand = tk.Button(self, text="Brand",command = lambda: controller.BRAND())
-        Brand.pack()
-        Car = tk.Button(self, text="Car",command = lambda: controller.CAR())
-        Car.pack()
-        CostofOwnership = tk.Button(self, text="Cost of Ownership",command = lambda: controller.COSTOFOWNERSHIP())
-        CostofOwnership.pack()
-        Engine = tk.Button(self, text="Engine",command = lambda: controller.ENGINE())
-        Engine.pack()
-        JointProject = tk.Button(self, text="Joint Project",command = lambda: controller.JOINTPROJECT())
-        JointProject.pack()
-        Review = tk.Button(self, text="Review",command = lambda: controller.REVIEW())
-        Review.pack()
-        Tech = tk.Button(self, text="Tech",command = lambda: controller.TECH())
-        Tech.pack()
-        UsesEngine = tk.Button(self, text="Alternate Engine",command = lambda: controller.USESENGINE())
-        UsesEngine.pack()
+        Projecte = tk.Button(self, text="project",command = lambda: controller.PROJECTE())
+        Projecte.pack()
 
 app = mainapp()
 app.mainloop()
