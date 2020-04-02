@@ -11,7 +11,7 @@ import mysql.connector
 # Remove unncessary buttons
 # Add correct views for correct actions (query, plot etc.)
 # Add matplotlib code to create a plot using the results of the query
-# Remove export query and export database?
+# Remove export query and export database
 # Remove the insertion and removal pages
 
 '''
