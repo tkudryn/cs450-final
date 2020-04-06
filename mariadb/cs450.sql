@@ -34,9 +34,9 @@ CREATE TABLE `project` (
   `date` date NOT NULL DEFAULT '0000-00-00',
   `state` varchar(15) NOT NULL DEFAULT '',
   `fips` int(2) DEFAULT NULL,
-  `cases` int(7) DEFAULT NULL,
+  `cases` int(7) NOT NULL DEFAULT '0',
   `deaths` int(4) DEFAULT NULL,
-  PRIMARY KEY (`date`,`state`)
+  PRIMARY KEY (`date`,`state`,`cases`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-04  6:08:10
+-- Dump completed on 2020-04-06 18:13:03
