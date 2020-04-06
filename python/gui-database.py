@@ -92,7 +92,7 @@ class QueryPage(tk.Frame):
         self.Scrolledtext2.delete(1.0,"end")
         # Assign vairables to mysql statements and execute
         # Open MySQL connection
-        self.cnx = mysql.connector.connect(user='project', password='', database='cs450',host='')
+        self.cnx = mysql.connector.connect(user='project', password='', database='cs450',host='167.99.98.111')
         self.cur = self.cnx.cursor()
         # Create simple query that doesn't use WHERE clause
         if self.WHEREB == 0:
