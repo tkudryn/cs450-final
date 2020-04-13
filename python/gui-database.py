@@ -324,15 +324,22 @@ class PlotPage(tk.Frame):
         self.cur = self.cnx.cursor()
         # Create simple query that doesn't use WHERE clause
 
+        #create syntax for rate column
         if self.TYPE == 'rate of death':
             self.TYPE = '(deaths/cases) AS rate'
-        # need to figure out how to do "all" for state
-        self.query1 = ("SELECT state, date, {} FROM {} WHERE state = '{}' ".format(self.TYPE, "project", self.STATE, self.TYPE))
+
+        # create syntax for state conditional (if all states, do not specify)
+        if self.STATE == "All":
+            self.STATE = ''
+        else:
+            self.STATE = "WHERE state = '" + self.STATE + "'"
+
+        self.query1 = ("SELECT state, date, {} FROM {} {} ".format(self.TYPE, "project", self.STATE, self.TYPE))
         print(self.query1)
         self.cur.execute(self.query1)
         print("Plot")
         # send to plot function self.cur.fetchall(), self.PLOTTYPE
-        print(self.cur.fetchall())
+        #call python fun (self.cur.fetchall(), self.PLOTTYPE)
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
