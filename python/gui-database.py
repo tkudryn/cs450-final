@@ -311,7 +311,7 @@ class PlotPage(tk.Frame):
 
         # Assign entry box values to variables
         self.STATE = self.Entry1.get()
-        self.TYPE = self.Entry2.get()
+        self.TYPE = self.Entry2Choice.get()
         self.PLOTTYPE = self.Entry3Choice.get()
         # Output for testing, remove before submission
         print(self.STATE)
@@ -320,16 +320,19 @@ class PlotPage(tk.Frame):
 
         # Assign variables to mysql statements and execute
         # Open MySQL connection
-        self.cnx = mysql.connector.connect(user='project', password='', database='cs450', host='')
+        self.cnx = mysql.connector.connect(user='project', password=credentials.password, database='cs450', host=credentials.host)
         self.cur = self.cnx.cursor()
         # Create simple query that doesn't use WHERE clause
 
+        if self.TYPE == 'rate of death':
+            self.TYPE = '(deaths/cases) AS rate'
         # need to figure out how to do "all" for state
-        self.query1 = ("SELECT {} FROM {} WHERE state = '{}' ".format(self.TYPE, "project", self.STATE, self.TYPE))
+        self.query1 = ("SELECT state, date, {} FROM {} WHERE state = '{}' ".format(self.TYPE, "project", self.STATE, self.TYPE))
         print(self.query1)
         self.cur.execute(self.query1)
         print("Plot")
         # send to plot function self.cur.fetchall(), self.PLOTTYPE
+        print(self.cur.fetchall())
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
@@ -368,11 +371,10 @@ class PlotPage(tk.Frame):
         self.Entry1.configure(font="TkFixedFont")
         self.Entry1.configure(selectbackground="#c4c4c4")
         # type input box
-        self.Entry2 = tk.Entry(self)
-        self.Entry2.place(relx=0.317, rely=0.2, height=20, relwidth=0.243)
-        self.Entry2.configure(background="white")
-        self.Entry2.configure(font="TkFixedFont")
-        self.Entry2.configure(selectbackground="#c4c4c4")
+        self.Entry2Choice = tk.StringVar()
+        self.Entry2Choice.set("cases")  # default value
+        self.Entry2 = tk.OptionMenu(self, self.Entry2Choice, "cases", "deaths", "rate of death")
+        self.Entry2.place(relx=0.317, rely=0.2, height=30, relwidth=0.4)
 
         # Plot type input box
 
