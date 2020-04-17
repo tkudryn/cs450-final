@@ -15,7 +15,7 @@ args = parser.parse_args()
 fileName = args.textfile
 
 # MySQL connection information
-cnx = mysql.connector.connect(user='project',password='!',database='cs450',host='167.99.98.111')
+cnx = mysql.connector.connect(user='project',password='',database='cs450',host='167.99.98.111')
 cur = cnx.cursor()
 
 ff = open(fileName)
