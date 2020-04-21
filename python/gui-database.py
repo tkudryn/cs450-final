@@ -351,7 +351,7 @@ class PlotPage(tk.Frame):
         _ana1color = '#d9d9d9'  # X11 color: 'gray85'
         _ana2color = '#ececec'  # Closest X11 color: 'gray92'
         self.style = ttk.Style()
-        label = tk.Label(self, text="Please fill out the form below to Query the database")
+        label = tk.Label(self, text="Please fill out the form below to generate the plot")
         label.pack()
 
         backbutton = tk.Button(self, text="Back", command=lambda: controller.show_frame(StartPage))
@@ -359,23 +359,23 @@ class PlotPage(tk.Frame):
         # begin Query form code
 
         self.Label1 = tk.Label(self)
-        self.Label1.place(relx=0.183, rely=0.089, height=28, width=46)
+        self.Label1.place(relx=0.183, rely=0.089, height=28, width=50)
         self.Label1.configure(activebackground="#f9f9f9")
         self.Label1.configure(text='''State''')
 
         self.Label2 = tk.Label(self)
-        self.Label2.place(relx=0.183, rely=0.2, height=18, width=46)
+        self.Label2.place(relx=0.183, rely=0.2, height=18, width=50)
         self.Label2.configure(activebackground="#f9f9f9")
         self.Label2.configure(text='''Type''')
 
         self.Label3 = tk.Label(self)
-        self.Label3.place(relx=0.183, rely=0.311, height=18, width=46)
+        self.Label3.place(relx=0.183, rely=0.311, height=18, width=50)
         self.Label3.configure(activebackground="#f9f9f9")
         self.Label3.configure(text='''Plot type''')
 
         # State input box
         self.Entry1 = tk.Entry(self)
-        self.Entry1.place(relx=0.317, rely=0.089, height=20, relwidth=0.243)
+        self.Entry1.place(relx=0.4, rely=0.089, height=20, relwidth=0.4)
         self.Entry1.configure(background="white")
         self.Entry1.configure(font="TkFixedFont")
         self.Entry1.configure(selectbackground="#c4c4c4")
@@ -383,7 +383,7 @@ class PlotPage(tk.Frame):
         self.Entry2Choice = tk.StringVar()
         self.Entry2Choice.set("cases")  # default value
         self.Entry2 = tk.OptionMenu(self, self.Entry2Choice, "cases", "deaths", "rate of death")
-        self.Entry2.place(relx=0.317, rely=0.2, height=30, relwidth=0.4)
+        self.Entry2.place(relx=0.4, rely=0.2, height=30, relwidth=0.4)
 
         # Plot type input box
 
@@ -391,7 +391,7 @@ class PlotPage(tk.Frame):
         self.Entry3Choice.set("time series")  # default value
 
         self.Entry3 = tk.OptionMenu(self, self.Entry3Choice, "time series", "cloropleth")
-        self.Entry3.place(relx=0.317, rely=0.311, height=30, relwidth=0.4)
+        self.Entry3.place(relx=0.4, rely=0.311, height=30, relwidth=0.4)
 
         # Run Query button
         self.Button1 = tk.Button(self)
