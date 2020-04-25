@@ -10,3 +10,9 @@ The update script uses wget to pull a new version of the file from the github re
 with the cli-script to update the database with the new data. This script will create a file based
 on what's new in the csv compared to what's in the old csv file. The new-data.csv file can be used to
 append new values to the database.
+
+## Files 
+new-data, New data to add to the database
+us-states, The complete data set
+us-states-old, an older version of the data set for a back up
+us-states-headers, A version of the data set that retains the headers
