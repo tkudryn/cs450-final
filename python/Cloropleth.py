@@ -5,6 +5,7 @@ import mysql.connector
 import credentials
 import PlotPage
 import StartPage
+import PlotCloropleth
 
 class Cloropleth(tk.Frame):
     def PLOT(self):
@@ -32,7 +33,8 @@ class Cloropleth(tk.Frame):
         print(self.query1)
         self.cur.execute(self.query1)
         print("Plot")
-        print(self.cur.fetchall())
+        #print(self.cur.fetchall())
+        PlotCloropleth.PlotCloropleth(self.cur.fetchall(), self.TYPE, self.DATE)
         # send to plot function self.cur.fetchall()
 
 

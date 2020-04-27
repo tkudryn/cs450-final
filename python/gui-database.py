@@ -326,6 +326,7 @@ class Cloropleth(tk.Frame):
         self.cur.execute(self.query1)
         print("Plot")
         print(self.cur.fetchall())
+        
         # send to plot function self.cur.fetchall()
 
 
