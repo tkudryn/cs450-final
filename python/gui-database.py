@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+
 from tkinter import messagebox
 import tkinter as tk
 import tkinter.scrolledtext as scrolledtext
@@ -7,9 +9,6 @@ import tkinter.ttk as ttk
 import mysql.connector
 import credentials
 
-# TODO:
-# Add matplotlib code to create a plot using the results of the query
-# Add plot page
 
 '''
 Overview of application
