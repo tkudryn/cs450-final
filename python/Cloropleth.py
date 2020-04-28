@@ -1,3 +1,6 @@
+#Author: Emily Risley 
+#Date: April 2020
+
 import tkinter as tk
 import sys
 import tkinter.ttk as ttk
@@ -7,6 +10,10 @@ import PlotPage
 import StartPage
 import PlotCloropleth
 
+#generates cloropleth page with fields for  date (form YYYY-MM-DD), 
+# type (cases, deaths, rate of death)
+#runs database query
+#prints and saves generated choropleth
 class Cloropleth(tk.Frame):
     def PLOT(self):
         print("Function Called")
@@ -55,14 +62,16 @@ class Cloropleth(tk.Frame):
 
         homebutton = tk.Button(self, text="Home", command=lambda: controller.show_frame(StartPage.StartPage))
         homebutton.pack(anchor="sw", side="right")
-        # begin Query form code
+        
+		# begin Query form code
 
+		#Date Label
         self.Label1 = tk.Label(self)
         self.Label1.place(relx=0.183, rely=0.089, height=28, width=50)
         self.Label1.configure(activebackground="#f9f9f9")
         self.Label1.configure(text='''Date''')
 
-
+		#Type Label
         self.Label2 = tk.Label(self)
         self.Label2.place(relx=0.183, rely=0.2, height=18, width=50)
         self.Label2.configure(activebackground="#f9f9f9")
@@ -74,6 +83,7 @@ class Cloropleth(tk.Frame):
         self.Entry1.configure(background="white")
         self.Entry1.configure(font="TkFixedFont")
         self.Entry1.configure(selectbackground="#c4c4c4")
+		
         # type input box
         self.Entry2Choice = tk.StringVar()
         self.Entry2Choice.set("cases")  # default value

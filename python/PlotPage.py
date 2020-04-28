@@ -1,3 +1,6 @@
+#Author: Emily Risley 
+#Date: April 2020
+
 import tkinter.ttk as ttk
 import tkinter as tk
 import Cloropleth
@@ -6,6 +9,7 @@ import StartPage
 ############
 # PlotPage #
 ############
+#navigation page for generating plots
 class PlotPage(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
@@ -17,6 +21,8 @@ class PlotPage(tk.Frame):
         self.style = ttk.Style()
         label = tk.Label(self, text="Please select a plot type")
         label.pack()
+		
+		#navigation buttons
         querybutton = tk.Button(self, text="Cloropleth", command=lambda: controller.show_frame(Cloropleth.Cloropleth))
         querybutton.pack()
 

@@ -1,3 +1,6 @@
+#Author: Emily Risley 
+#Date: April 2020
+
 from tkinter import messagebox
 import tkinter as tk
 import tkinter.scrolledtext as scrolledtext
@@ -10,6 +13,8 @@ import StartPage
 ###########
 # StatisticsPage#
 ###########
+#takes input from fields state (capital long form, can also be "All", date (form YYYY-MM-DD), 
+# type (cases, deaths, rate of death
 class StatisticsPage(tk.Frame):
     def STATS(self):
         print("Function Called")
@@ -77,36 +82,39 @@ class StatisticsPage(tk.Frame):
         backbutton.pack(anchor="sw", side="left")
         # begin Query form code
 
+		#state label
         self.Label1 = tk.Label(self)
         self.Label1.place(relx=0.183, rely=0.089, height=28, width=46)
         self.Label1.configure(activebackground="#f9f9f9")
         self.Label1.configure(text='''State''')
 
+		#date Label
         self.Label2 = tk.Label(self)
         self.Label2.place(relx=0.183, rely=0.2, height=28, width=46)
         self.Label2.configure(activebackground="#f9f9f9")
         self.Label2.configure(text='''Date''')
 
+		#Type label
         self.Label3 = tk.Label(self)
         self.Label3.place(relx=0.183, rely=0.311, height=18, width=46)
         self.Label3.configure(activebackground="#f9f9f9")
         self.Label3.configure(text='''Type''')
 
-        # Select input box
+        # Select state input box, can be "All"
         self.Entry1 = tk.Entry(self)
         self.Entry1.place(relx=0.4, rely=0.089, height=20, relwidth=0.4)
         self.Entry1.configure(background="white")
         self.Entry1.configure(font="TkFixedFont")
         self.Entry1.configure(selectbackground="#c4c4c4")
 
-        # Select input box
+        # Select date input box, form YYYY-MM-DD
         self.Entry2 = tk.Entry(self)
         self.Entry2.place(relx=0.4, rely=0.2, height=20, relwidth=0.4)
         self.Entry2.configure(background="white")
         self.Entry2.configure(font="TkFixedFont")
         self.Entry2.configure(selectbackground="#c4c4c4")
 
-        # type input box
+        # data type input box
         self.Entry3Choice = tk.StringVar()
         self.Entry3Choice.set("cases")  # default value
         self.Entry3 = tk.OptionMenu(self, self.Entry3Choice, "cases", "deaths", "rate of death")
@@ -122,6 +130,7 @@ class StatisticsPage(tk.Frame):
         self.Scrolledtext2.configure(selectbackground="#c4c4c4")
         self.Scrolledtext2.configure(width=10)
         self.Scrolledtext2.configure(wrap="none")
+		
         # Run Query button
         self.Button1 = tk.Button(self)
         self.Button1.place(relx=0.017, rely=0.578, height=28, width=92)

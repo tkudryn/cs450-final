@@ -1,3 +1,6 @@
+#Author: Emily Risley 
+#Date: April 2020
+
 import tkinter as tk
 import sys
 import tkinter.ttk as ttk
