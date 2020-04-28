@@ -10,6 +10,10 @@ mv us-states.csv us-states-old.csv
 echo 'Updating'
 wget https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv
 
+# Copy the csv file with headers intact
+echo 'Creating a csv file with headers intact'
+cp us-states.csv us-state-headers.csv
+
 # Remove first line of file
 echo 'Removing title row from file'
 sed -i -e 1d us-states.csv
