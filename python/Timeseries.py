@@ -43,7 +43,8 @@ class Timeseries(tk.Frame):
         self.cur.execute(self.query1)
         print("Plot")
         #print(self.cur.fetchall())
-        # send to plot function self.cur.fetchall(), self.PLOTTYPE
+        if self.TYPE == '(deaths/cases) AS rate':
+            self.TYPE = 'rate'
         PlotTimeseries.PlotTimeseries(self.cur.fetchall(), self.TYPE)
 
     def __init__(self, parent, controller):

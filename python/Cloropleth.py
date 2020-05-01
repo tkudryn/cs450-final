@@ -40,7 +40,9 @@ class Cloropleth(tk.Frame):
         print(self.query1)
         self.cur.execute(self.query1)
         print("Plot")
-        #print(self.cur.fetchall())
+        
+        if self.TYPE == '(deaths/cases) AS rate':
+            self.TYPE = 'rate'
         PlotCloropleth.PlotCloropleth(self.cur.fetchall(), self.TYPE, self.DATE)
         # send to plot function self.cur.fetchall()
 
