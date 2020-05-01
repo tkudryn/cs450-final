@@ -7,7 +7,7 @@ import pandas as pd
 
 #takes list of tuples containing state name (long form) and count (as returned from a sql query)
 # name of the type of data, and date the data is associated with
-# opens browser window showing choropleth, and saves figure to app directory
+# creates and saves figure to app directory
 def PlotCloropleth(SQLdata, name, date):
 	df = pd.DataFrame(SQLdata, columns=['state', 'count'])
 	
@@ -42,5 +42,4 @@ def PlotCloropleth(SQLdata, name, date):
 		geo_scope='usa',  # Plot only the USA instead of globe
 	)
 	
-	fig.show()
-	fig.write_image("choropleth.png")
+	fig.write_image(name + "-" + date + "-choropleth.png")
