@@ -12,7 +12,10 @@ on what's new in the csv compared to what's in the old csv file. The new-data.cs
 append new values to the database.
 
 ## Files 
-new-data, New data to add to the database
-us-states, The complete data set
-us-states-old, an older version of the data set for a back up
-us-states-headers, A version of the data set that retains the headers
+new-data.csv, New data to add to the database <br>
+us-states.csv, The complete data set <br>
+us-states-old.csv, an older version of the data set for a back up <br>
+us-states-headers.csv, A version of the data set that retains the headers <br>
+cs450.sql, an sqldump of the database. Functions as submittable code and as a backup of the database <br>
+update-data.sh, a bash script used to download new versions of the csv file and parse the new data from
+the old data.
