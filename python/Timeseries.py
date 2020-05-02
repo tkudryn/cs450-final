@@ -8,7 +8,7 @@ import mysql.connector
 import credentials
 import StartPage
 import PlotPage
-
+import PlotTimeseries
 
 class Timeseries(tk.Frame):
     def PLOT(self):
@@ -42,9 +42,10 @@ class Timeseries(tk.Frame):
         print(self.query1)
         self.cur.execute(self.query1)
         print("Plot")
-        print(self.cur.fetchall())
-        # send to plot function self.cur.fetchall(), self.PLOTTYPE
-        #call python fun (self.cur.fetchall(), self.PLOTTYPE)
+        #print(self.cur.fetchall())
+        if self.TYPE == '(deaths/cases) AS rate':
+            self.TYPE = 'rate'
+        PlotTimeseries.PlotTimeseries(self.cur.fetchall(), self.TYPE)
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
