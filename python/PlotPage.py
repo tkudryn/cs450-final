@@ -6,6 +6,7 @@ import tkinter as tk
 import Cloropleth
 import Timeseries
 import StartPage
+import lab19
 ############
 # PlotPage #
 ############
@@ -29,6 +30,10 @@ class PlotPage(tk.Frame):
         querybutton = tk.Button(self, text="Time series", command=lambda: controller.show_frame(Timeseries.Timeseries))
         querybutton.pack()
 
+        querybutton = tk.Button(self, text="Plot Report", command= lab19.plots)
+        querybutton.pack()
+		
         backbutton = tk.Button(self, text="Back", command=lambda: controller.show_frame(StartPage.StartPage))
         backbutton.pack(anchor="sw", side="left")
         # end buttons
+	
